@@ -1,3 +1,44 @@
+const playButton = document.getElementById('playButton');
+const audio = new Audio('music.mp3'); // Замените 'your-audio-file.mp3' на путь к вашему аудиофайлу
+audio.volume = 0.1; // Устанавливаем громкость на половину
+
+let isPlaying = false;
+
+playButton.addEventListener('click', function() {
+	if (!isPlaying) {
+		audio.play();
+		isPlaying = true;
+		playButton.classList.add('clicked');
+	} else {
+		audio.pause();
+		isPlaying = false;
+		playButton.classList.remove('clicked');
+	}
+});
+
+// Событие, которое будет вызвано, когда песня закончится
+audio.addEventListener('ended', function() {
+	// Воспроизводим песню заново
+	audio.currentTime = 0; // Сброс времени воспроизведения на начало
+	audio.play();
+});
+window.addEventListener('DOMContentLoaded', function() {
+	document.getElementById('playButton').style.opacity = '1';
+	document.getElementById('infoButton').style.opacity = '1';
+	document.querySelector('.header').style.opacity = '1';
+});
+
+const infoButton = document.getElementById('infoButton');
+const infoPopup = infoButton.querySelector('.info-popup');
+
+infoButton.addEventListener('mouseenter', function() {
+	infoPopup.style.display = 'block';
+});
+
+infoButton.addEventListener('mouseleave', function() {
+	infoPopup.style.display = 'none';
+});
+
 var lu=Object.defineProperty;var cu=(r,e,t)=>e in r?lu(r,e,{enumerable:!0,configurable:!0,writable:!0,value:t}):r[e]=t;var Xr=(r,e,t)=>(cu(r,typeof e!="symbol"?e+"":e,t),t);const hu=function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const i of document.querySelectorAll('link[rel="modulepreload"]'))n(i);new MutationObserver(i=>{for(const s of i)if(s.type==="childList")for(const a of s.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&n(a)}).observe(document,{childList:!0,subtree:!0});function t(i){const s={};return i.integrity&&(s.integrity=i.integrity),i.referrerpolicy&&(s.referrerPolicy=i.referrerpolicy),i.crossorigin==="use-credentials"?s.credentials="include":i.crossorigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function n(i){if(i.ep)return;i.ep=!0;const s=t(i);fetch(i.href,s)}};hu();/**
  * @license
  * Copyright 2010-2022 Three.js Authors

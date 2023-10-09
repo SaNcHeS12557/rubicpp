@@ -1,34 +1,160 @@
-*
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html,
-body
-{
+html, body {
     overflow: hidden;
 }
 
-.experience
-{
+.experience {
     position: fixed;
     width: 100vw;
     height: 100vh;
 }
 
-.credits
-{
-    position: absolute;
+/* Стили для контейнера */
+.container {
+    position: fixed;
     bottom: 20px;
-    right: 20px;
-    color: #ffffff;
-    text-align: right;
-    font-family: 'Roboto', sans-serif;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.credits a
-{
-    color: inherit;
+/* Стили для кнопки "Sound" */
+#playButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px; /* Расстояние между кнопками */
+    position: relative;
+}
+
+#playButton::before,
+#playButton::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 2px;
+    height: 35px;
+    background-color: #000;
+    transition: transform 0.3s ease;
+}
+
+#playButton::before {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#playButton::after {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+#playButton img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain; /* Изменяем object-fit на "contain" для сохранения размера иконки */
+    border-radius: 25%;
+    background-color: rgba(176, 176, 176, 0.8);
+    transition: background-color 0.3s ease;
+}
+
+#playButton:hover img {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+#playButton.clicked::before,
+#playButton.clicked::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* Стили для кнопки "Info" */
+#infoButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#infoButton img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain; /* Изменяем object-fit на "contain" для сохранения размера иконки */
+    border-radius: 25%;
+    background-color: rgba(176, 176, 176, 0.8);
+    transition: background-color 0.3s ease;
+}
+
+#infoButton:hover img {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+#infoButton.clicked::before,
+#infoButton.clicked::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+#playButton,
+#infoButton {
+    opacity: 0;
+    transition: opacity 2.8s ease; /* Добавляем анимацию для свойства opacity */
+}
+
+.info-popup {
+    display: none;
+    position: absolute;
+    top: -60px; /* Располагаем окошко выше кнопки */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 200px;
+}
+
+#infoButton:hover .info-popup {
+    display: block;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.header img {
+    display: block;
+    margin: 0 auto;
+    width: 657px; /* Установите ширину изображения в соответствии с размером */
+    height: 183px; /* Установите высоту изображения в соответствии с размером */
+}
+
+.header{
+    opacity: 0;
+    transition: opacity 2.8s ease; /* Добавляем анимацию для свойства opacity */
 }
