@@ -1,6 +1,6 @@
 const playButton = document.getElementById('playButton');
 const audio = new Audio('music.mp3'); // Замените 'your-audio-file.mp3' на путь к вашему аудиофайлу
-audio.volume = 0.1; // Устанавливаем громкость на половину
+audio.volume = 0.4; // Устанавливаем громкость на половину
 
 let isPlaying = false;
 
