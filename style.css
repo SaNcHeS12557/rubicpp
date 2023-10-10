@@ -14,16 +14,6 @@ html, body {
     height: 100vh;
 }
 
-/* Стили для контейнера */
-.container {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 /* Стили для кнопки "Sound" */
 #playButton {
@@ -69,12 +59,12 @@ html, body {
     display: block;
     object-fit: contain; /* Изменяем object-fit на "contain" для сохранения размера иконки */
     border-radius: 25%;
-    background-color: rgba(176, 176, 176, 0.8);
+    background-color: rgba(155, 73, 255, 0.4);
     transition: background-color 0.3s ease;
 }
 
 #playButton:hover img {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(211, 173, 255, 0.36);
 }
 
 #playButton.clicked::before,
@@ -101,23 +91,17 @@ html, body {
     display: block;
     object-fit: contain; /* Изменяем object-fit на "contain" для сохранения размера иконки */
     border-radius: 25%;
-    background-color: rgba(176, 176, 176, 0.8);
+    background-color: rgba(155, 73, 255, 0.4);
     transition: background-color 0.3s ease;
 }
 
 #infoButton:hover img {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(211, 173, 255, 0.36);
 }
 
 #infoButton.clicked::before,
 #infoButton.clicked::after {
     transform: translate(-50%, -50%) rotate(0deg);
-}
-
-#playButton,
-#infoButton {
-    opacity: 0;
-    transition: opacity 2.8s ease; /* Добавляем анимацию для свойства opacity */
 }
 
 .info-popup {
@@ -145,6 +129,7 @@ html, body {
     left: 0;
     right: 0;
     text-align: center;
+    margin-top: 20px;
 }
 
 .header img {
@@ -154,7 +139,87 @@ html, body {
     height: 183px; /* Установите высоту изображения в соответствии с размером */
 }
 
+.container,
 .header{
     opacity: 0;
     transition: opacity 2.8s ease; /* Добавляем анимацию для свойства opacity */
 }
+
+#githubButton,
+#mailButton,
+#documentButton,
+#playButton,
+#infoButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px; /* Adjust the spacing between buttons */
+    position: relative;
+}
+
+#githubButton img,
+#mailButton img,
+#documentButton img,
+#playButton img,
+#infoButton img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    border-radius: 25%;
+    background-color: rgba(155, 73, 255, 0.4);
+    transition: background-color 0.3s ease;
+}
+
+#githubButton:hover img,
+#mailButton:hover img,
+#documentButton:hover img,
+#playButton:hover img,
+#infoButton:hover img {
+    background-color: rgba(211, 173, 255, 0.36);
+}
+
+.container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack the two rows vertically */
+}
+
+.top-row,
+.bottom-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-row .button,
+.bottom-row .button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.bottom-row {
+    margin-top: 10px;
+}
+
+
+/* Add styles for button images and hover effects as previously defined */
