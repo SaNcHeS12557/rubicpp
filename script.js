@@ -23,8 +23,7 @@ audio.addEventListener('ended', function() {
 	audio.play();
 });
 window.addEventListener('DOMContentLoaded', function() {
-	document.getElementById('playButton').style.opacity = '1';
-	document.getElementById('infoButton').style.opacity = '1';
+	document.querySelector('.container').style.opacity = '1';
 	document.querySelector('.header').style.opacity = '1';
 });
 
