@@ -187,7 +187,7 @@ html, body {
 }
 
 /*mobile adaptation of bottom container*/
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     .container {
         width: 100%;
     }
