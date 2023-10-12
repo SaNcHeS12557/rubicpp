@@ -221,5 +221,20 @@ html, body {
     margin-top: 10px;
 }
 
+@media (max-width: 500px) {
+    .container {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; /* Stack the two rows vertically */
+    }
+    .bottom-row {
+        margin-top: 10px;
+    }
+}
 
 /* Add styles for button images and hover effects as previously defined */
